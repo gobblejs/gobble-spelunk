@@ -1,0 +1,13 @@
+{
+  "name": "gobble-spelunk",
+  "version": "0.1.0",
+  "description": "Flatten folders with gobble and spelunk",
+  "author": "Rich Harris",
+  "dependencies": {
+    "gobble": "~0.1.2",
+    "spelunk": "~0.1.2"
+  },
+  "keywords": [
+    "gobble"
+  ]
+}
