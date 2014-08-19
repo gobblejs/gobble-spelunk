@@ -14,7 +14,7 @@ module.exports = function ( inputDir, outputDir, options, done ) {
 
 		if ( err ) return done( err );
 
-		require( 'gobble' ).file.write( outputDir, options.dest, stringify( result ) ).then( done );
+		require( 'gobble' ).file.write( outputDir, options.dest, stringify( result, options ) ).then( done );
 	});
 };
 
