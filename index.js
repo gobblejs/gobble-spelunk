@@ -1,20 +1,20 @@
 var tosource = require( 'tosource' );
 
-module.exports = function ( inputDir, outputDir, options, done ) {
-	require( 'spelunk' )( inputDir, function ( err, result ) {
+module.exports = function ( inputDir, outputDir, options, done, err ) {
+	require( 'spelunk' )( inputDir, function ( error, result ) {
 		var stringify = stringifiers[ options.type || 'json' ];
 
 		if ( !options.dest ) {
-			err = 'You must specify a `dest` property for the gobble-spelunk transform';
+			error = 'You must specify a `dest` property for the gobble-spelunk transform';
 		}
 
 		if ( !stringify ) {
-			err = 'You must specify a `type` property for the gobble-spelunk plugin. Supported types are ' + Object.keys( stringifiers );
+			error = 'You must specify a `type` property for the gobble-spelunk plugin. Supported types are ' + Object.keys( stringifiers );
 		}
 
-		if ( err ) return done( err );
+		if ( error ) return err( error );
 
-		require( 'gobble' ).file.write( outputDir, options.dest, stringify( result ) ).then( done );
+		require( 'gobble' ).file.write( outputDir, options.dest, stringify( result ) ).then( done, err );
 	});
 };
 
