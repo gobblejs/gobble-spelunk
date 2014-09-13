@@ -1,7 +1,7 @@
 var tosource = require( 'tosource' );
 
-module.exports = function ( inputDir, outputDir, options, done, err ) {
-	require( 'spelunk' )( inputDir, function ( error, result ) {
+module.exports = function ( inputdir, outputdir, options, callback, errback ) {
+	require( 'spelunk' )( inputdir, function ( error, result ) {
 		var stringify = stringifiers[ options.type || 'json' ];
 
 		if ( !options.dest ) {
@@ -12,9 +12,9 @@ module.exports = function ( inputDir, outputDir, options, done, err ) {
 			error = 'You must specify a `type` property for the gobble-spelunk plugin. Supported types are ' + Object.keys( stringifiers );
 		}
 
-		if ( error ) return err( error );
+		if ( error ) return errback( error );
 
-		require( 'gobble' ).file.write( outputDir, options.dest, stringify( result, options ) ).then( done, err );
+		require( 'sander' ).writeFile( outputdir, options.dest, stringify( result, options ) ).then( callback, errback );
 	});
 };
 
@@ -34,4 +34,4 @@ var stringifiers = {
 	es6: function ( result, options ) {
 		return 'export default (' + tosource( result ) + ');';
 	}
-}
+};
