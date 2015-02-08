@@ -30,6 +30,6 @@ var stringifiers = {
 	},
 
 	es6: function ( result, options ) {
-		return 'export default (' + tosource( result ) + ');';
+		return 'export default ' + tosource( result ) + ';';
 	}
 };
