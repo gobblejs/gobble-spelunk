@@ -1,7 +1,7 @@
 var tosource = require( 'tosource' );
 
 module.exports = function ( inputdir, outputdir, options ) {
-	return require( 'spelunk' )( inputdir ).then( function ( result ) {
+	return require( 'spelunk' )( inputdir, options ).then( function ( result ) {
 		var stringify = stringifiers[ options.type || 'json' ];
 
 		if ( !options.dest ) {

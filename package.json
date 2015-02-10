@@ -1,14 +1,14 @@
 {
   "name": "gobble-spelunk",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Flatten folders with gobble and spelunk",
   "author": "Rich Harris",
   "license": "MIT",
   "repository": "https://github.com/gobblejs/gobble-spelunk",
   "dependencies": {
-    "sander": "^0.1.0",
+    "sander": "^0.2.2",
     "spelunk": "^0.3.0",
-    "tosource": "~0.1.2"
+    "tosource": "~0.1.3"
   },
   "keywords": [
     "gobble",
