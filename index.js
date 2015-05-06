@@ -36,7 +36,7 @@ var stringifiers = {
 		return 'module.exports = ' + tosource( result ) + ';';
 	},
 
-	es6: function ( result ) {
-		return 'export default (' + tosource( result ) + ');';
+	es6: function ( result, options ) {
+		return 'export default ' + tosource( result ) + ';';
 	}
 };
