@@ -16,12 +16,23 @@ npm i -D gobble-spelunk
 
 ```js
 var gobble = require( 'gobble' );
-module.exports = gobble( 'data' ).transform( 'spelunk', { type: 'json', dest: 'data.json' });
+module.exports = gobble( 'data' ).transform( 'spelunk', {
+  // output format can be `json`, `amd`, `cjs` or `es6`
+  type: 'json',
+
+  // the file to create
+  dest: 'data.json',
+
+  // JSON-specific options - for more info see
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
+  replacer: someFunction,
+  space: '  '
+
+  // remaining options are passed through to spelunk
+  exclude: [ '**/README.md' ],
+  keepExtensions: true
+});
 ```
-
-The options argument must have a `dest` property, specifying where the result gets written. You can specify the `type` of output as one of `json` (default), `amd`, cjs` or `es6`.
-
-In `json` mode, you can specify `replacer` and `space` options, which are passed to `JSON.stringify()` (see [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) for an explanation).
 
 
 ## License
