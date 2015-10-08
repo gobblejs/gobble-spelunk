@@ -1,5 +1,9 @@
 # changelog
 
+## 0.6.0
+
+* Update to spelunk 0.5.0
+
 ## 0.5.0
 
 * Name exported function so it shows up in gobble-cli logging
